@@ -7,22 +7,21 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import TaskArray from '../interfaces';
 import { useStore } from 'vuex';
 const store = useStore();
 
 const taskName = ref<string>('');
-const tasks = ref<Array<TaskArray>>([]);
 
 const addTaskToLocalStorage = () => {
+  console.log(taskName.value);
+
   if (!taskName.value.length) return;
-  tasks.value.push({
+  store.commit('addTask', {
     name: taskName.value,
     id: Math.floor(Math.random() * 1000),
     isCompleted: false,
   });
-
-  store.commit('addTask', ...tasks.value);
+  taskName.value = '';
 };
 </script>
 
