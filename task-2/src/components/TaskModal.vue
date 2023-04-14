@@ -1,13 +1,13 @@
 <template>
   <div class="modal-wrapper">
     <p class="modal-task-name">
-      {{ item.name }}
+      {{ item?.name }}
     </p>
 
     <button
       @click="
         {
-          emit('updateTaskStatusToProgress');
+          emit('updateTaskStatus');
           emit('closeModal');
         }
       "
@@ -24,10 +24,10 @@
 import TaskArrayItem from '../interfaces';
 
 defineProps<{
-  item: TaskArrayItem;
+  item: TaskArrayItem | undefined;
 }>();
 
-const emit = defineEmits(['closeModal', 'updateTaskStatusToProgress']);
+const emit = defineEmits(['closeModal', 'updateTaskStatus']);
 </script>
 
 <style scoped>
