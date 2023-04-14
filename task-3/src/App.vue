@@ -1,30 +1,30 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup lang="ts">
+import axios from 'axios';
+import { onMounted, ref } from 'vue';
+
+const singleAdvice = ref<string>('');
+const error = ref<string>('');
+
+const fetchDataFromAPI = () => {
+  axios
+    .get('https://api.adviceslip.com/advice')
+    .then((response) => {
+      singleAdvice.value = response.data.slip.advice;
+    })
+    .catch((error) => {
+      error.value = error;
+    });
+};
+onMounted(() => {
+  fetchDataFromAPI();
+});
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <h2>Advice generator with axios</h2>
+  <p>{{ singleAdvice ? singleAdvice : 'Loading...' }}</p>
+  <button @click="fetchDataFromAPI()">Regenerate advice</button>
+  <p v-if="error" class="error">{{ error }}</p>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+<style scoped></style>
