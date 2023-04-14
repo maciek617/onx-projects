@@ -20,7 +20,7 @@
               }
             "
           >
-            {{ task.name }}
+            {{ task.name.slice(0, 14) + '...' }}
             <span
               :class="'status-' + replaceChars(task.status, ' ', '-')"
               class="status-task"
