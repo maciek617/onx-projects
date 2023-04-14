@@ -1,5 +1,5 @@
-export default interface TaskArray {
-  name: string;
-  id: number;
-  isCompleted: boolean;
+export default interface TaskArrayItem {
+  name?: string;
+  id?: number;
+  status?: string;
 }
