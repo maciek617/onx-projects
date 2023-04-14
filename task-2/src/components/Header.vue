@@ -13,7 +13,7 @@
   font-weight: 400;
   text-align: center;
   padding-top: 20px;
-  background: linear-gradient(90deg, #26e3c2 0%, #45a0f5 104.02%);
+  background: linear-gradient(90deg, #26e3c2 25%, #45a0f5 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

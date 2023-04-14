@@ -14,7 +14,7 @@ export default createStore({
     updateTodoList(state, payload) {
       state.todoList = payload;
     },
-    
+
     removeTask(state, payload) {
       state.todoList = state.todoList.filter((task) => task.id !== payload);
     },
@@ -22,6 +22,12 @@ export default createStore({
     editTaskStatus(state, payload) {
       const currentTask = state.todoList.find((task) => task.id === payload.id);
       currentTask.status = payload.status;
+    },
+
+    editTaskName(state, payload) {
+      const currentTask = state.todoList.find((task) => task.id === payload.id);
+      currentTask.name = payload.name;
+      console.log(payload.name);
     },
 
     changeGlobalFilterStatus(state, payload) {

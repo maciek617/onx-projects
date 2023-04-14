@@ -6,6 +6,7 @@ import Header from './components/Header.vue';
 
 <template>
   <div class="container">
+    <div class="background"></div>
     <Header />
     <AddTaskForm />
     <AllTasksBoard />

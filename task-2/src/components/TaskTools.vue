@@ -3,7 +3,7 @@
     <div @click="emit('editTaskStatusToComplete')" class="single-icon-wrapper">
       <img src="../assets/Vector (8).svg" alt="rubber bin" />
     </div>
-    <div class="single-icon-wrapper">
+    <div @click="emit('openModalFunction')" class="single-icon-wrapper">
       <img src="../assets/Vector (7).svg" alt="rubber bin" />
     </div>
     <div @click="emit('removeCurrentTask')" class="single-icon-wrapper">
@@ -13,7 +13,11 @@
 </template>
 
 <script setup lang="ts">
-const emit = defineEmits(['editTaskStatusToComplete', 'removeCurrentTask']);
+const emit = defineEmits([
+  'editTaskStatusToComplete',
+  'removeCurrentTask',
+  'openModalFunction',
+]);
 </script>
 
 <style scoped>

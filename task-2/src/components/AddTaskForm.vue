@@ -17,7 +17,7 @@ const store = useStore();
 const taskName = ref<string>('');
 
 const addTaskToLocalStorage = () => {
-  if (!taskName.value.length) return;
+  if (!taskName.value.trim().length) return;
   store.commit('addTask', {
     name: taskName.value,
     id: Math.floor(Math.random() * 1000),
@@ -58,5 +58,6 @@ const addTaskToLocalStorage = () => {
   background-color: #1e1e1e;
   padding: 14px 42px;
   color: #fcfcfc;
+  cursor: pointer;
 }
 </style>

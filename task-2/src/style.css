@@ -7,4 +7,19 @@
   background: #000;
   min-height: 100vh;
   overflow: hidden;
+  padding: 0 20px;
+}
+
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: block !important;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
 }

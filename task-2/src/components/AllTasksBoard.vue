@@ -13,12 +13,7 @@
           <p
             :class="replaceChars(task.status, ' ', '-')"
             class="task-name"
-            @click="
-              {
-                clickedTask = task.id;
-                openModal = true;
-              }
-            "
+            @click="openModalFunction(task.id)"
           >
             {{ task.name.slice(0, 14) + '...' }}
             <span
@@ -30,6 +25,7 @@
           <TaskTools
             @editTaskStatusToComplete="editTaskStatusToComplete(task)"
             @removeCurrentTask="removeCurrentTask(task)"
+            @openModalFunction="openModalFunction(task.id)"
           />
         </div>
       </div>
@@ -44,6 +40,7 @@
           'in progress'
         )
       "
+      @editTaskName="(id, name) => editTaskName(id, name)"
       :item="findTask(store.state.todoList, clickedTask)"
     />
   </div>
@@ -54,7 +51,7 @@ import { useStore } from 'vuex';
 import FilterTasks from './FilterTasks.vue';
 import TaskModal from './TaskModal.vue';
 import TaskTools from './TaskTools.vue';
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import TaskArrayItem from '../interfaces';
 import NoTaskFound from './NoTaskFound.vue';
 import { replaceChars } from '../helpers/replaceChars';
@@ -86,9 +83,29 @@ const removeCurrentTask = (task: TaskArrayItem) => {
   localStorage.setItem('todos', JSON.stringify(store.state.todoList));
 };
 
+const openModalFunction = (id: number) => {
+  clickedTask.value = id;
+  openModal.value = true;
+};
+
+const editTaskName = (id: number, name: string) => {
+  store.commit('editTaskName', { id: id, name: name });
+  console.log(store.state.todoList);
+
+  localStorage.setItem('todos', JSON.stringify(store.state.todoList));
+};
+
 onMounted(() => {
   if (savedTodolist.value) {
     store.commit('updateTodoList', JSON.parse(savedTodolist.value));
+  }
+});
+
+watch(openModal, (newOpenModal) => {
+  if (newOpenModal) {
+    document.querySelector('.background')?.classList.add('backdrop');
+  } else {
+    document.querySelector('.background')?.classList.remove('backdrop');
   }
 });
 </script>
@@ -98,8 +115,9 @@ onMounted(() => {
   background-color: #1e1e1e;
   border-radius: 4px;
   padding-top: 10px;
+  padding-bottom: 10px;
   max-width: 600px;
-  margin: 0 10px;
+  margin: 0 auto;
   min-height: 300px;
 }
 
@@ -119,6 +137,7 @@ onMounted(() => {
 .task-name {
   position: relative;
   padding-top: 2px;
+  cursor: pointer;
 }
 
 .task-name span {
@@ -166,4 +185,5 @@ onMounted(() => {
 .list-leave-active {
   position: absolute;
 }
+
 </style>
