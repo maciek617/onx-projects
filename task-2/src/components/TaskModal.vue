@@ -26,7 +26,9 @@
       </button>
     </div>
 
-    <div @click="emit('closeModal')" class="modal-button-close">X</div>
+    <div @click="emit('closeModal')" class="modal-button-close">
+      <img src="../assets/Vector (9).svg" alt="X sign" />
+    </div>
   </div>
 </template>
 
@@ -97,5 +99,9 @@ const emit = defineEmits(['closeModal', 'updateTaskStatus', 'editTaskName']);
   top: 5%;
   right: 3%;
   cursor: pointer;
+  background-color: #000000;
+  padding: 10px 14px;
+  border-radius: 4px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 </style>

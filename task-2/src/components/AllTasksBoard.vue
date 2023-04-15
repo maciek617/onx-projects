@@ -132,6 +132,7 @@ watch(openModal, (newOpenModal) => {
   margin-left: 14px;
   margin-right: 14px;
   margin-top: 10px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .task-name {
@@ -185,5 +186,4 @@ watch(openModal, (newOpenModal) => {
 .list-leave-active {
   position: absolute;
 }
-
 </style>

@@ -36,6 +36,7 @@ const emit = defineEmits([
   height: 30px;
   border-radius: 4px;
   cursor: pointer;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .single-icon-wrapper:hover img {

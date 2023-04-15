@@ -35,7 +35,6 @@ const addTaskToLocalStorage = () => {
   align-items: center;
   justify-content: center;
   gap: 20px;
-
   margin: 50px 0;
 }
 .add-task-input {
@@ -45,6 +44,7 @@ const addTaskToLocalStorage = () => {
   border: 0;
   outline: 0;
   border-radius: 4px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .add-task-input:focus,
@@ -59,5 +59,6 @@ const addTaskToLocalStorage = () => {
   padding: 14px 42px;
   color: #fcfcfc;
   cursor: pointer;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 </style>
