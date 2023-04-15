@@ -5,7 +5,6 @@
       <button
         @click="
           {
-            emit('updateTaskStatus');
             emit('closeModal');
             emit('editTaskName', props.item?.id, name);
           }
