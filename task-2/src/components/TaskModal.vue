@@ -27,7 +27,7 @@
     </div>
 
     <div @click="emit('closeModal')" class="modal-button-close">
-      <img src="../assets/Vector (9).svg" alt="X sign" />
+      <img src="../assets/Vector4.svg" alt="X sign" />
     </div>
   </div>
 </template>

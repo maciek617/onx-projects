@@ -1,13 +1,13 @@
 <template>
   <div class="icons-wrapper">
     <div @click="emit('editTaskStatusToComplete')" class="single-icon-wrapper">
-      <img src="../assets/Vector (8).svg" alt="rubber bin" />
+      <img src="../assets/Vector3.svg" alt="rubber bin" />
     </div>
     <div @click="emit('openModalFunction')" class="single-icon-wrapper">
-      <img src="../assets/Vector (7).svg" alt="rubber bin" />
+      <img src="../assets/Vector2.svg" alt="rubber bin" />
     </div>
     <div @click="emit('removeCurrentTask')" class="single-icon-wrapper">
-      <img src="../assets/Vector (6).svg" alt="rubber bin" />
+      <img src="../assets/Vector1.svg" alt="rubber bin" />
     </div>
   </div>
 </template>
